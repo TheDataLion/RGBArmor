@@ -1,8 +1,8 @@
 main: mohagames\RGBArmor\Main
 name: RGBArmor
 description: Color your armor with RGB codes!
-version: 1.0.0
-api: 3.0.0
+version: 1.1.0
+api: 4.0.0
 commands:
   makearmor:
     permission: makearmor.use

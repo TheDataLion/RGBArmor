@@ -5,19 +5,22 @@ namespace mohagames\RGBArmor;
 
 use jojoe77777\FormAPI\CustomForm;
 use jojoe77777\FormAPI\SimpleForm;
+use pocketmine\color\Color;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\event\Listener;
+use pocketmine\item\Armor;
 use pocketmine\item\Item;
+use pocketmine\item\ItemFactory;
 use pocketmine\item\ItemIds;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\Color;
+
 
 
 class Main extends PluginBase implements Listener
 {
-    public function onEnable()
+    public function onEnable(): void
     {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
@@ -112,7 +115,9 @@ class Main extends PluginBase implements Listener
     public function makeHelmet(array $array, $player)
     {
         list($r, $g, $b) = $array;
-        $item = Item::get(ItemIds::LEATHER_HELMET);
+
+        /** @var Armor $item */
+        $item = ItemFactory::getInstance()->get(ItemIds::LEATHER_HELMET);
         $item->setCustomColor(new Color($r, $g, $b));
         $player->getInventory()->addItem($item);
     }
@@ -121,8 +126,8 @@ class Main extends PluginBase implements Listener
     {
         list($r, $g, $b) = $array;
 
-
-        $item = Item::get(ItemIds::LEATHER_CHESTPLATE);
+        /** @var Armor $item */
+        $item = ItemFactory::getInstance()->get(ItemIds::LEATHER_CHESTPLATE);
         $item->setCustomColor(new Color($r, $g, $b));
         $player->getInventory()->addItem($item);
     }
@@ -130,7 +135,9 @@ class Main extends PluginBase implements Listener
     public function makeBoots(array $array, $player)
     {
         list($r, $g, $b) = $array;
-        $item = Item::get(ItemIds::LEATHER_BOOTS);
+
+        /** @var Armor $item */
+        $item = ItemFactory::getInstance()->get(ItemIds::LEATHER_BOOTS);
         $item->setCustomColor(new Color($r, $g, $b));
         $player->getInventory()->addItem($item);
     }
@@ -138,7 +145,9 @@ class Main extends PluginBase implements Listener
     public function makePants(array $array, $player)
     {
         list($r, $g, $b) = $array;
-        $item = Item::get(ItemIds::LEATHER_PANTS);
+
+        /** @var Armor $item */
+        $item = ItemFactory::getInstance()->get(ItemIds::LEATHER_PANTS);
         $item->setCustomColor(new Color($r, $g, $b));
         $player->getInventory()->addItem($item);
     }
